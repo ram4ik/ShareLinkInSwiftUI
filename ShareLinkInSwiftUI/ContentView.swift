@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private let url = URL(string: "https://www.apple.com")!
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ShareLink(item: url)
+                .padding()
+            ShareLink(item: url) {
+                Label("Share this Link", systemImage: "heart.fill")
+            }
         }
         .padding()
     }
